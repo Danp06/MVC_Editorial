@@ -1,9 +1,10 @@
+from datetime import date
 class Document(object):
     """
     Class used to represent an Person
     """
 
-    def __init__(self, tittle: str, authors: str = 'Autor', pub_date: int = "Fecha", id: int = 'Codigo'
+    def __init__(self, tittle: str, authors: str = 'Autor', pub_date: date.today(), id: int = 'Codigo'
                  ,edition: int = 'edicion', nropag: int = 'numeropaginas'):
         """ Person constructor object.
 
