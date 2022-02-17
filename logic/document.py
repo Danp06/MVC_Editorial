@@ -39,7 +39,7 @@ class Document(object):
 
 if __name__ == '__main__':
 
-    d = Document(tittle="El principito")
-    d.name = "Principito"
+    d = Document(tittle="Hola")
+    d.name = "Principito xd"
     print(d)
 
