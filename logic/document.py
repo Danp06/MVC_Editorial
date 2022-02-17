@@ -4,7 +4,7 @@ class Document(object):
     Class used to represent an Person
     """
 
-    def __init__(self, tittle: str, authors: str = 'Autor', pub_date: date.today(), id: int = 'Codigo'
+    def __init__(self, tittle: str, authors: str = 'Autor', pub_date: date = date.today(), id: int = 'Codigo'
                  ,edition: int = 'edicion', nropag: int = 'numeropaginas'):
         """ Person constructor object.
 
@@ -39,7 +39,7 @@ class Document(object):
 
 if __name__ == '__main__':
 
-    edwin = Document(tittle="El principito")
-    edwin.name = "Principito"
-    print(Document)
+    d = Document(tittle="El principito")
+    d.name = "Principito"
+    print(d)
 
