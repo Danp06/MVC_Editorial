@@ -5,6 +5,7 @@ from logic.person import Person
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 model = []
+model2 = []
 
 
 @app.route("/")
@@ -36,7 +37,7 @@ def people():
 
 @app.route('/document')
 def document():
-    data = [(i.id_person, i.name, i.last_name) for i in model]
+    data = [(i.tittle, i.id_document, i.pub_date, i.edition, i.nropag) for i in model2]
     print(data)
     return render_template('document.html', value=data)
 
