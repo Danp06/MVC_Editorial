@@ -33,6 +33,7 @@ def people():
     print(data)
     return render_template('people.html', value=data)
 
+
 @app.route('/document')
 def document():
     data = [(i.id_person, i.name, i.last_name) for i in model]

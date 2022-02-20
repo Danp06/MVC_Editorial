@@ -80,4 +80,3 @@ if __name__ == '__main__':
     edwin = Person(id_person=73577376, name="Edwin", last_name="Puertas")
     edwin.name = "Edwin. A"
     print(edwin)
-
