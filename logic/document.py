@@ -18,6 +18,10 @@ class Document(object):
         :type pub_date: date
         :param id_document: id of document.
         :type id_document: int
+        :param edition: edition of document.
+        :type: int
+        :param nropag: number of pages of document.
+        :type: int
         """
         self._tittle = tittle
         self._id_document = id_document
