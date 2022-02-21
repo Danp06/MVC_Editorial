@@ -7,13 +7,15 @@ class Document(object):
     """
 
     def __init__(
-            self, tittle: str,
+            self, tittle: str = "NT", authors: str = "NT",
             pub_date: date = date.today(), id_document: int = 000,
             edition: int = 000, nropag: int = 000):
         """ Document constructor object.
 
         :param tittle: name of document.
         :type tittle: str
+        :param authors: name of author of document.
+        :rtype: str
         :param pub_date: date of publication of document.
         :type pub_date: date
         :param id_document: id of document.
@@ -24,6 +26,7 @@ class Document(object):
         :type nropag: int
         """
         self._tittle = tittle
+        self._authors = authors
         self._id_document = id_document
         self._pub_date = pub_date
         self._edition = edition
@@ -44,6 +47,22 @@ class Document(object):
         :type: str
         """
         self._tittle = tittle
+
+    @property
+    def authors(self) -> str:
+        """ Returns the name of the document.
+          :returns: name of author of document.
+          :rtype: str
+        """
+        return self._authors
+
+    @authors.setter
+    def authors(self, authors: str):
+        """ The name of the document.
+        :param authors: name of document.
+        :type: str
+        """
+        self._authors = authors
 
     @property
     def pub_date(self) -> date:
@@ -114,7 +133,7 @@ class Document(object):
           :returns: sting document
           :rtype: str
         """
-        return '({0}, {1}, {2}, {3} edition, {4} pag)'.format(self.tittle, self.id_document,
+        return '({0}, {1}, {2}, {3}, {4}edition, {5})'.format(self.tittle, self.authors, self.id_document,
                                                               self.pub_date, self.edition, self.nropag)
 
 
