@@ -8,20 +8,32 @@
         <br>
             <form action="/document_detail" method="post">
                 <input type="hidden" id="op" name="op" value="I">
+
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup_id">ID</span>
-                    <input type="text" class="form-control" name="id_person" aria-label="Sizing example input" aria-describedby="inputGroup_idt">
+                    <span class="input-group-text" id="inputGroup_tittle">Tittle</span>
+                    <input type="text" class="form-control" name="tittle" aria-label="Sizing example input" aria-describedby="inputGroup_tittle">
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup_name">First name</span>
-                    <input type="text" class="form-control" name="first_name" aria-label="Sizing example input" aria-describedby="inputGroup_name">
+                    <span class="input-group-text" id="inputGroup_date">Publication date</span>
+                    <input type="date" class="form-control" name="pub_date" aria-label="Sizing example input" aria-describedby="inputGroup_date">
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup_lastName">Last Name</span>
-                    <input type="text" class="form-control" name="last_name" aria-label="Sizing example input" aria-describedby="inputGroup_lastName">
+                    <span class="input-group-text" id="inputGroup_id">ID Document</span>
+                    <input type="number" class="form-control" name="id_document" aria-label="Sizing example input" aria-describedby="inputGroup_idd">
                 </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_edition">Edition</span>
+                    <input type="number" class="form-control" name="edition" aria-label="Sizing example input" aria-describedby="inputGroup_edition">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_nropag">Pagination Number</span>
+                    <input type="number" class="form-control" name="nro_pag" aria-label="Sizing example input" aria-describedby="inputGroup_nropag">
+                </div>
+
                 <br >
                 <input class="btn btn-primary" type="submit" name="form" value="Submit" />
             </form>

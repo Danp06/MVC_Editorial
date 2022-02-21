@@ -37,16 +37,28 @@ def people():
     return render_template('people.html', value=data)
 
 
-@app.route('/documents')
-def documents():
-    data = [(i.tittle, i.id_document, i.pub_date, i.edition, i.nropag) for i in model2]
-    print(data)
-    return render_template('documents.html', value=data)
-
-
 @app.route('/document', methods=['GET'])
 def document():
     return render_template('document.html')
+
+
+@app.route('/document_detail', methods=['POST'])
+def document_detail():
+    tittle = request.form['tittle']
+    id_document = request.form['id_document']
+    pub_date = request.form['pub_date']
+    edition = request.form['edition']
+    nro_pag = request.form['nro_pag']
+    d = Document(tittle=tittle, id_document=id_document, pub_date=pub_date, edition=edition, nro_pag=nro_pag)
+    model2.append(d)
+    return render_template('document_detail.html', value=d)
+
+
+@app.route('/documents')
+def documents():
+    data2 = [(i.tittle, i.pub_date, i.id_document, i.edition, i.nropag) for i in model2]
+    print(data2)
+    return render_template('documents.html', value=data2)
 
 
 if __name__ == '__main__':

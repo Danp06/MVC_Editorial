@@ -7,7 +7,7 @@ class Document(object):
     """
 
     def __init__(
-            self, tittle: str, authors: str = "Autor",
+            self, tittle: str,
             pub_date: date = date.today(), id_document: int = 000,
             edition: int = 000, nropag: int = 000):
         """ Document constructor object.
