@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 from logic.person import Person
+from logic.document import Document
+
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -35,11 +37,16 @@ def people():
     return render_template('people.html', value=data)
 
 
-@app.route('/document')
-def document():
+@app.route('/documents')
+def documents():
     data = [(i.tittle, i.id_document, i.pub_date, i.edition, i.nropag) for i in model2]
     print(data)
-    return render_template('document.html', value=data)
+    return render_template('documents.html', value=data)
+
+
+@app.route('/document', methods=['GET'])
+def document():
+    return render_template('document.html')
 
 
 if __name__ == '__main__':

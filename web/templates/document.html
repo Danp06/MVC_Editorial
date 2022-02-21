@@ -2,31 +2,28 @@
 
 {% block page_content %}
 
-<h2>Documentos</h2>
-<a href="/person" class="btn btn-success float-right">Add New Person</a>
+<div class="page-header">
+    <h1>Document Form</h1>
+    <p>Enter your information about document:   </p>
+        <br>
+            <form action="/document_detail" method="post">
+                <input type="hidden" id="op" name="op" value="I">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_id">ID</span>
+                    <input type="text" class="form-control" name="id_person" aria-label="Sizing example input" aria-describedby="inputGroup_idt">
+                </div>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Edit | Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for line in value %}
-    <tr>
-        <th scope="row">{{line[0]}}</th>
-        <td>{{line[1]}}</td>
-        <td>{{line[2]}}</td>
-        <td>
-            <a href="/person_update/{{line[0]}}" class="btn btn-warning btn-xs">Edit</a>
-            <a href="/person_delete/{{line[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
-        </td>
-    </tr>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_name">First name</span>
+                    <input type="text" class="form-control" name="first_name" aria-label="Sizing example input" aria-describedby="inputGroup_name">
+                </div>
 
-    {% endfor %}
-  </tbody>
-</table>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup_lastName">Last Name</span>
+                    <input type="text" class="form-control" name="last_name" aria-label="Sizing example input" aria-describedby="inputGroup_lastName">
+                </div>
+                <br >
+                <input class="btn btn-primary" type="submit" name="form" value="Submit" />
+            </form>
+</div>
 {% endblock %}
