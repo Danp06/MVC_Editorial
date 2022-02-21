@@ -27,7 +27,7 @@ class Document(object):
         self._id_document = id_document
         self._pub_date = pub_date
         self._edition = edition
-        self.nropag = nropag
+        self._nropag = nropag
 
     @property
     def tittle(self) -> str:
