@@ -37,6 +37,28 @@ def people():
     return render_template('people.html', value=data)
 
 
+@app.route('/person_update/<id_person>')
+def person_update(id_person):
+    for i in model:
+        if i.id_person == id_person:
+            first_name = request.form['first_name']
+            last_name = request.form['last_name']
+            p = Person(id_person=id_person, name=first_name, last_name=last_name)
+            model.insert(i, p)
+            return render_template('person_update.html', value=p)
+
+
+@app.route('/person_delete/<id_person>')
+def person_delete(id_person):
+    for i in model:
+        if i.id_person == id_person:
+            temp = i
+            print("La persona con Id: ", temp.id_person, " a sido borrado")
+            model.remove(temp)
+
+    return render_template('person_delete.html')
+
+
 @app.route('/document', methods=['GET'])
 def document():
     return render_template('document.html')
@@ -50,7 +72,8 @@ def document_detail():
     pub_date = request.form['pub_date']
     edition = request.form['edition']
     nropag = request.form['nropag']
-    d = Document(tittle=tittle, authors=authors, id_document=id_document, pub_date=pub_date, edition=edition, nropag=nropag)
+    d = Document(tittle=tittle, authors=authors, id_document=id_document, pub_date=pub_date,
+                 edition=edition, nropag=nropag)
     model2.append(d)
     return render_template('document_detail.html', value=d)
 
@@ -60,6 +83,17 @@ def documents():
     data2 = [(j.tittle, j.authors, j.pub_date, j.id_document, j.edition, j.nropag) for j in model2]
     print(data2)
     return render_template('documents.html', value=data2)
+
+
+@app.route('/document_delete/<id_document>')
+def document_delete(id_document):
+    for i in model2:
+        if i.id_document == id_document:
+            temp = i
+            print("El documento con Id: ", temp.id_document, " a sido borrado")
+            model2.remove(temp)
+
+    return render_template('document_delete.html')
 
 
 if __name__ == '__main__':
