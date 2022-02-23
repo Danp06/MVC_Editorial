@@ -39,6 +39,7 @@ def people():
 
 @app.route('/person_update/<id_person>', methods=['GET'])
 def person_update(id_person):
+    person_delete(id_person)
     return render_template('person_update.html', id_person=id_person)
 
 
@@ -81,6 +82,7 @@ def documents():
 
 @app.route('/document_update/<id_document>', methods=['GET'])
 def document_update(id_document):
+    document_delete(id_document)
     return render_template('document_update.html', id_document=id_document)
     
 
