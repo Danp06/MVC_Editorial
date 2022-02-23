@@ -7,12 +7,12 @@
     <p>Enter your information about document:   </p>
         <br>
             <form action="/document_detail" method="post">
-                <input type="hidden" id="op" name="op" value="I">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup_id">ID Document</span>
-                    <input type="number" class="form-control" name="id_document" aria-label="Sizing example input" aria-describedby="inputGroup_idd">
+                    <input type="number" class="form-control" name="id_document" aria-label="Sizing example input" aria-describedby="inputGroup_idd" value={{id_document}} readonly>
                 </div>
 
+                <input type="hidden" id="op" name="op" value="I">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup_tittle">Tittle</span>
                     <input type="text" class="form-control" name="tittle" aria-label="Sizing example input" aria-describedby="inputGroup_tittle">

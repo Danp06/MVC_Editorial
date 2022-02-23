@@ -7,8 +7,8 @@ class Document(object):
     """
 
     def __init__(
-            self, tittle: str = "NT", authors: str = "NT",
-            pub_date: date = date.today(), id_document: int = 000,
+            self, id_document: int = 000, tittle: str = "NT",
+            authors: str = "NT", pub_date: date = date.today(),
             edition: int = 000, nropag: int = 000):
         """ Document constructor object.
 
@@ -25,12 +25,28 @@ class Document(object):
         :param nropag: number of pages of document.
         :type nropag: int
         """
+        self._id_document = id_document
         self._tittle = tittle
         self._authors = authors
-        self._id_document = id_document
         self._pub_date = pub_date
         self._edition = edition
         self._nropag = nropag
+
+    @property
+    def id_document(self) -> int:
+        """ Returns id document of the document.
+          :returns: id of document.
+          :rtype: int
+        """
+        return self._id_document
+
+    @id_document.setter
+    def id_document(self, id_document: int):
+        """ The id of the document.
+        :param id_document: id of document.
+        :type: int
+        """
+        self._id_document = id_document
 
     @property
     def tittle(self) -> str:
@@ -81,22 +97,6 @@ class Document(object):
         self._pub_date = pub_date
 
     @property
-    def id_document(self) -> int:
-        """ Returns id document of the document.
-          :returns: id of document.
-          :rtype: int
-        """
-        return self._id_document
-
-    @id_document.setter
-    def id_document(self, id_document: int):
-        """ The id of the document.
-        :param id_document: id of document.
-        :type: int
-        """
-        self._id_document = id_document
-
-    @property
     def edition(self) -> int:
         """ Returns edition of the document.
           :returns: edition of document.
@@ -133,12 +133,11 @@ class Document(object):
           :returns: sting document
           :rtype: str
         """
-        return '({0}, {1}, {2}, {3}, {4}edition, {5})'.format(self.tittle, self.authors, self.id_document,
-                                                              self.pub_date, self.edition, self.nropag)
+        return '({0}, {1}, {2}, {3}, {4}, {5})'.format(self.id_document, self.tittle, self.authors,
+                                                       self.pub_date, self.edition, self.nropag)
 
 
 if __name__ == '__main__':
 
-    d = Document(tittle="El Principito", id_document=341, pub_date=date.today(), edition=3, nropag=70)
-    d.tittle = "Primer Libro"
+    d = Document()
     print(d)

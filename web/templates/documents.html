@@ -8,10 +8,10 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
+        <th scope="col">Id document</th>
         <th scope="col">Tittle</th>
         <th scope="col">Authors</th>
         <th scope="col">Publication date</th>
-        <th scope="col">Id document</th>
         <th scope="col">Edition</th>
         <th scope="col">Number Pagination</th>
         <th scope="col">Edit | Delete</th>
@@ -28,7 +28,7 @@
         <td>{{line[5]}}</td>
         <td>
             <a href="/document_update/{{line[0]}}" class="btn btn-warning btn-xs">Edit</a>
-            <a href="/document_delete/{{line[3]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+            <a href="/document_delete/{{line[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
         </td>
     </tr>
 

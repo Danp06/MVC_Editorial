@@ -37,15 +37,9 @@ def people():
     return render_template('people.html', value=data)
 
 
-@app.route('/person_update/<id_person>')
+@app.route('/person_update/<id_person>', methods=['GET'])
 def person_update(id_person):
-    for i in model:
-        if i.id_person == id_person:
-            first_name = request.form['first_name']
-            last_name = request.form['last_name']
-            p = Person(id_person=id_person, name=first_name, last_name=last_name)
-            model.insert(i, p)
-            return render_template('person_update.html', value=p)
+    return render_template('person_update.html', id_person=id_person)
 
 
 @app.route('/person_delete/<id_person>')
@@ -66,24 +60,29 @@ def document():
 
 @app.route('/document_detail', methods=['POST'])
 def document_detail():
+    id_document = request.form['id_document']
     tittle = request.form['tittle']
     authors = request.form['authors']
-    id_document = request.form['id_document']
     pub_date = request.form['pub_date']
     edition = request.form['edition']
     nropag = request.form['nropag']
-    d = Document(tittle=tittle, authors=authors, id_document=id_document, pub_date=pub_date,
-                 edition=edition, nropag=nropag)
+    d = Document( id_document=id_document, tittle=tittle, authors=authors,
+                  pub_date=pub_date, edition=edition, nropag=nropag)
     model2.append(d)
     return render_template('document_detail.html', value=d)
 
 
 @app.route('/documents')
 def documents():
-    data2 = [(j.tittle, j.authors, j.pub_date, j.id_document, j.edition, j.nropag) for j in model2]
+    data2 = [(j.id_document, j.tittle, j.authors, j.pub_date, j.edition, j.nropag) for j in model2]
     print(data2)
     return render_template('documents.html', value=data2)
 
+
+@app.route('/document_update/<id_document>', methods=['GET'])
+def document_update(id_document):
+    return render_template('document_update.html', id_document=id_document)
+    
 
 @app.route('/document_delete/<id_document>')
 def document_delete(id_document):

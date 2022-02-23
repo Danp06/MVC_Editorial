@@ -7,10 +7,10 @@
     <p>Enter your First Name and Last Name:   </p>
         <br>
             <form action="/person_detail" method="post">
-                <input type="hidden" id="op" name="op" value="I">
+                <input type="hidden" id="op" name="op" value="U">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup_id">ID</span>
-                    <input type="text" class="form-control" name="id_person" aria-label="Sizing example input" aria-describedby="inputGroup_idt" disabled>
+                    <input type="text" class="form-control" name="id_person" aria-label="Sizing example input" aria-describedby="inputGroup_idt" value={{id_person}} readonly>
                 </div>
 
                 <div class="input-group mb-3">
